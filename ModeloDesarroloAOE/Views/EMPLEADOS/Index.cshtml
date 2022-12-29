@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ModeloDesarroloAOE.EMPLEADOS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p></p>
+<p>
+    @Html.ActionLink("Añadir empleado", "Create", new { area = "" }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre empleado
+        </th>
+        <th>
+            Apellidos empleado
+        </th>
+        <th>
+            DNI
+        </th>
+        <th>
+            Edad
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Telefono
+        </th>
+        <th>
+            Dirección
+        </th>
+        <th>
+            Correo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SEXO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFONO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIRECCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CORREO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDEMPLEADOS }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IDEMPLEADOS }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SIS_GES_ALMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIAS">
+    <Key>
+      <PropertyRef Name="IDCATEGORIAS" />
+    </Key>
+    <Property Name="IDCATEGORIAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EMPLEADOS">
+    <Key>
+      <PropertyRef Name="IDEMPLEADOS" />
+    </Key>
+    <Property Name="IDEMPLEADOS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRES" Type="varchar" MaxLength="100" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="100" />
+    <Property Name="DNI" Type="varchar" MaxLength="8" />
+    <Property Name="EDAD" Type="int" />
+    <Property Name="SEXO" Type="char" MaxLength="1" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="9" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="100" />
+    <Property Name="CORREO" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PRODUCTOS">
+    <Key>
+      <PropertyRef Name="IDPRODUCTOS" />
+    </Key>
+    <Property Name="IDPRODUCTOS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="PR_UNIT" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="STOCK" Type="int" />
+    <Property Name="IDPROVEEDORES" Type="int" />
+    <Property Name="IDCATEGORIAS" Type="int" />
+  </EntityType>
+  <EntityType Name="PROVEEDORES">
+    <Key>
+      <PropertyRef Name="IDPROVEEDORES" />
+    </Key>
+    <Property Name="IDPROVEEDORES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="RUC" Type="varchar" MaxLength="11" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="100" />
+    <Property Name="CORREO" Type="varchar" MaxLength="100" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="9" />
+  </EntityType>
+  <EntityType Name="REGISTRO">
+    <Key>
+      <PropertyRef Name="IDREGISTRO" />
+    </Key>
+    <Property Name="IDREGISTRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FEC_INGR" Type="date" />
+    <Property Name="IDVENTAS" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="VENTAS">
+    <Key>
+      <PropertyRef Name="IDVENTAS" />
+    </Key>
+    <Property Name="IDVENTAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FEC_VENT" Type="date" />
+    <Property Name="TOTAL" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IDPRODUCTOS" Type="int" />
+    <Property Name="IDEMPLEADOS" Type="int" />
+  </EntityType>
+  <Association Name="FK__PRODUCTOS__IDCAT__5070F446">
+    <End Role="CATEGORIAS" Type="Self.CATEGORIAS" Multiplicity="0..1" />
+    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIAS">
+        <PropertyRef Name="IDCATEGORIAS" />
+      </Principal>
+      <Dependent Role="PRODUCTOS">
+        <PropertyRef Name="IDCATEGORIAS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PRODUCTOS__IDPRO__4F7CD00D">
+    <End Role="PROVEEDORES" Type="Self.PROVEEDORES" Multiplicity="0..1" />
+    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDORES">
+        <PropertyRef Name="IDPROVEEDORES" />
+      </Principal>
+      <Dependent Role="PRODUCTOS">
+        <PropertyRef Name="IDPROVEEDORES" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REGISTRO__IDVENT__66603565">
+    <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="0..1" />
+    <End Role="REGISTRO" Type="Self.REGISTRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENTAS">
+        <PropertyRef Name="IDVENTAS" />
+      </Principal>
+      <Dependent Role="REGISTRO">
+        <PropertyRef Name="IDVENTAS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENTAS__IDEMPLEA__628FA481">
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+    <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADOS">
+        <PropertyRef Name="IDEMPLEADOS" />
+      </Principal>
+      <Dependent Role="VENTAS">
+        <PropertyRef Name="IDEMPLEADOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VENTAS__IDPRODUC__619B8048">
+    <End Role="PRODUCTOS" Type="Self.PRODUCTOS" Multiplicity="0..1" />
+    <End Role="VENTAS" Type="Self.VENTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTOS">
+        <PropertyRef Name="IDPRODUCTOS" />
+      </Principal>
+      <Dependent Role="VENTAS">
+        <PropertyRef Name="IDPRODUCTOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SIS_GES_ALMModelStoreContainer">
+    <EntitySet Name="CATEGORIAS" EntityType="Self.CATEGORIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTOS" EntityType="Self.PRODUCTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDORES" EntityType="Self.PROVEEDORES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGISTRO" EntityType="Self.REGISTRO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VENTAS" EntityType="Self.VENTAS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PRODUCTOS__IDCAT__5070F446" Association="Self.FK__PRODUCTOS__IDCAT__5070F446">
+      <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PRODUCTOS__IDPRO__4F7CD00D" Association="Self.FK__PRODUCTOS__IDPRO__4F7CD00D">
+      <End Role="PROVEEDORES" EntitySet="PROVEEDORES" />
+      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REGISTRO__IDVENT__66603565" Association="Self.FK__REGISTRO__IDVENT__66603565">
+      <End Role="VENTAS" EntitySet="VENTAS" />
+      <End Role="REGISTRO" EntitySet="REGISTRO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENTAS__IDEMPLEA__628FA481" Association="Self.FK__VENTAS__IDEMPLEA__628FA481">
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+      <End Role="VENTAS" EntitySet="VENTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VENTAS__IDPRODUC__619B8048" Association="Self.FK__VENTAS__IDPRODUC__619B8048">
+      <End Role="PRODUCTOS" EntitySet="PRODUCTOS" />
+      <End Role="VENTAS" EntitySet="VENTAS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

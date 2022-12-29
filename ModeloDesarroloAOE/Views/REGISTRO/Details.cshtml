@@ -1,0 +1,35 @@
+﻿@model ModeloDesarroloAOE.REGISTRO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>REGISTRO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FEC_INGR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEC_INGR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VENTAS.IDVENTAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VENTAS.IDVENTAS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDREGISTRO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

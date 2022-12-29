@@ -1,0 +1,73 @@
+﻿@model ModeloDesarroloAOE.PRODUCTOS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h3>¿Estás seguro que quieres borrar este producto?</h3>
+<div>
+    <h4>PRODUCTOS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PR_UNIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PR_UNIT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STOCK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STOCK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORIAS.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORIAS.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROVEEDORES.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROVEEDORES.NOMBRE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg" /> |
+            @Html.ActionLink("Regresar", "Index", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

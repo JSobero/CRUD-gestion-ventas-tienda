@@ -1,0 +1,51 @@
+﻿@model ModeloDesarroloAOE.VENTAS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VENTAS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FEC_VENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEC_VENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLEADOS.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODUCTOS.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCTOS.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDVENTAS }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

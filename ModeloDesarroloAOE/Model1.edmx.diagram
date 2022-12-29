@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ade5a632021944309e123b4d3f90925a" Name="Diagram1">
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.CATEGORIAS" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.EMPLEADOS" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.PRODUCTOS" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.PROVEEDORES" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.REGISTRO" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIS_GES_ALMModel.VENTAS" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="SIS_GES_ALMModel.FK__PRODUCTOS__IDCAT__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="SIS_GES_ALMModel.FK__VENTAS__IDEMPLEA__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="SIS_GES_ALMModel.FK__PRODUCTOS__IDPRO__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="SIS_GES_ALMModel.FK__VENTAS__IDPRODUC__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="SIS_GES_ALMModel.FK__REGISTRO__IDVENT__66603565" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

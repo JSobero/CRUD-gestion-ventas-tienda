@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ModeloDesarroloAOE.VENTAS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p></p>
+<p>
+    @Html.ActionLink("Añadir venta", "Create", new { area = "" }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fecha de venta
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            Empleado
+        </th>
+        <th>
+            Producto
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FEC_VENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLEADOS.NOMBRES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODUCTOS.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDVENTAS }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IDVENTAS }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

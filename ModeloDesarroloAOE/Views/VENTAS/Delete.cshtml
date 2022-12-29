@@ -1,0 +1,58 @@
+﻿@model ModeloDesarroloAOE.VENTAS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h3>¿Estás seguro que quieres borrar está venta?</h3>
+<div>
+    <h4>VENTAS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FEC_VENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEC_VENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLEADOS.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODUCTOS.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODUCTOS.NOMBRE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg" /> |
+             @Html.ActionLink("Regresar", "Index", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

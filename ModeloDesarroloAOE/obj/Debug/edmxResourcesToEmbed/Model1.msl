@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SIS_GES_ALMModelStoreContainer" CdmEntityContainer="SIS_GES_ALMEntities">
+    <EntitySetMapping Name="CATEGORIAS">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.CATEGORIAS">
+        <MappingFragment StoreEntitySet="CATEGORIAS">
+          <ScalarProperty Name="IDCATEGORIAS" ColumnName="IDCATEGORIAS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADOS">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.EMPLEADOS">
+        <MappingFragment StoreEntitySet="EMPLEADOS">
+          <ScalarProperty Name="IDEMPLEADOS" ColumnName="IDEMPLEADOS" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="EDAD" ColumnName="EDAD" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTOS">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.PRODUCTOS">
+        <MappingFragment StoreEntitySet="PRODUCTOS">
+          <ScalarProperty Name="IDPRODUCTOS" ColumnName="IDPRODUCTOS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PR_UNIT" ColumnName="PR_UNIT" />
+          <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+          <ScalarProperty Name="IDPROVEEDORES" ColumnName="IDPROVEEDORES" />
+          <ScalarProperty Name="IDCATEGORIAS" ColumnName="IDCATEGORIAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDORES">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.PROVEEDORES">
+        <MappingFragment StoreEntitySet="PROVEEDORES">
+          <ScalarProperty Name="IDPROVEEDORES" ColumnName="IDPROVEEDORES" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGISTRO">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.REGISTRO">
+        <MappingFragment StoreEntitySet="REGISTRO">
+          <ScalarProperty Name="IDREGISTRO" ColumnName="IDREGISTRO" />
+          <ScalarProperty Name="FEC_INGR" ColumnName="FEC_INGR" />
+          <ScalarProperty Name="IDVENTAS" ColumnName="IDVENTAS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENTAS">
+      <EntityTypeMapping TypeName="SIS_GES_ALMModel.VENTAS">
+        <MappingFragment StoreEntitySet="VENTAS">
+          <ScalarProperty Name="IDVENTAS" ColumnName="IDVENTAS" />
+          <ScalarProperty Name="FEC_VENT" ColumnName="FEC_VENT" />
+          <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+          <ScalarProperty Name="IDPRODUCTOS" ColumnName="IDPRODUCTOS" />
+          <ScalarProperty Name="IDEMPLEADOS" ColumnName="IDEMPLEADOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

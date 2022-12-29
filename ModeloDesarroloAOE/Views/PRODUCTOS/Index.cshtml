@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ModeloDesarroloAOE.PRODUCTOS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<p></p>
+<p>
+    @Html.ActionLink("Añadir producto", "Create", new { area = "" }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre del producto
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Precio unitario
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Proveedor
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PR_UNIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STOCK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORIAS.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROVEEDORES.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IDPRODUCTOS }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IDPRODUCTOS }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

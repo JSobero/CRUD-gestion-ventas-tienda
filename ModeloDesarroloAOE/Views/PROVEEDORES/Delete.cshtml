@@ -1,0 +1,66 @@
+﻿@model ModeloDesarroloAOE.PROVEEDORES
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h3>¿Estás seguro que quieres borrar este proveedor?</h3>
+<div>
+    <h4>PROVEEDORES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RUC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RUC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg" /> |
+             @Html.ActionLink("Regresar", "Index", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

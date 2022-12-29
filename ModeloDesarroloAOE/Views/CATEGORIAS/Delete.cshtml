@@ -1,0 +1,41 @@
+﻿@model ModeloDesarroloAOE.CATEGORIAS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h3>¿Estás seguro que quieres borrar está categoria?</h3>
+<div>
+    <h4>CATEGORIAS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg" /> |
+             @Html.ActionLink("Regresar", "Index", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
